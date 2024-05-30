@@ -19,4 +19,4 @@ https://drive.google.com/file/d/1O-wVkU61iB_Pg3XH-gZyZqZN3iCkX-N-/view?usp=drive
 
 # Run extension
 
-Chrome -> extension ->
+Chrome -> extension -> developer mode -> load unpacked 
