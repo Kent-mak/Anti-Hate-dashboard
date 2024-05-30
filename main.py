@@ -47,13 +47,13 @@ youtube = googleapiclient.discovery.build(
 
 
 @app.get("/")
-async def root(video_ID: str, threshold: Annotated[Union[List[str], None], Query()] = None, comment_amount: int = 50):
+async def root(video_ID: str, threshold: Annotated[Union[List[str], None], Query()] = None, comment_count: int = 50):
     threshold = [float(i) for i in threshold]
 
     request = youtube.commentThreads().list(
         part = "snippet",
         videoId = video_ID,
-        maxResults = comment_amount
+        maxResults = comment_count
     )
 
     response = request.execute()
