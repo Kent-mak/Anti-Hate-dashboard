@@ -61,10 +61,19 @@ async def root(video_ID: str, threshold: Annotated[Union[List[str], None], Query
 
     for item in response['items']:
         comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
-        if detect(comment) != 'en': continue
 
-        evaluation = model_eval(comment)
-        # print(evaluation)
+        try:
+            lang = detect(comment)
+        except:
+            continue
+
+        if lang != 'en': continue
+
+        try:
+            evaluation = model_eval(comment)
+        except:
+            continue
+
         valid = True
         for i in range(len(evaluation)):
             if threshold[i] < evaluation[i]:
