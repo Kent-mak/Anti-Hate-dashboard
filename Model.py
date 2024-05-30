@@ -44,7 +44,7 @@ def getModel():
 
 def eval(text):
     model = getModel()
-    model.load_state_dict(torch.load("model3%.pt", map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load("model10%.pt", map_location=torch.device('cpu')))
     model.eval()
 
     tokenizer = AutoTokenizer.from_pretrained('distilbert-base-uncased')
