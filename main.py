@@ -8,10 +8,14 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
+allowed_origins = [
+    'https://www.youtube.com',
+]
+
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://www.youtube.com"],  # Replace this with the appropriate origin
+    allow_origins=allowed_origins,  # Replace this with the appropriate origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
