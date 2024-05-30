@@ -10,7 +10,7 @@
         {
             "matches": ["*://*.youtube.com/*"],
             "js":[
-                "blockcomment.js"
+                "content.js"
             ]
         }
     ],
