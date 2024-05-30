@@ -6,6 +6,7 @@ Spring 2024 AI final project
 pip install torch transformers peft 
 pip install fastapi
 pip install google-api-python-client
+pip install langdetect
 ```
 
 # Run server
