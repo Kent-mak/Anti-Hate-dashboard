@@ -3,7 +3,9 @@ Spring 2024 AI final project
 
 # requirements
 ```
-pip install torch transformers peft fastapi
+pip install torch transformers peft 
+pip install fastapi
+pip install google-api-python-client
 ```
 
 # Run server
