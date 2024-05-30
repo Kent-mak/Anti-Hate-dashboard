@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
   function hideComments() {
     const commentSection = document.getElementById('comments');
     if (commentSection) {
-      //commentSection.style.display = 'none';
+      commentSection.style.display = 'none';
     }
   }
 
@@ -34,7 +34,15 @@ window.addEventListener('load', function() {
           }
       })
       .then(response => response.json())
-      .then(data => console.log('Successfully sent video ID:', data))
+      .then(data => {
+        console.log('Successfully sent video ID:', data);
+        chrome.storage.local.set({ commentData: data }).then(() => {
+          console.log("Value is set");
+          chrome.runtime.sendMessage({ type: 'showcomment', data: data }, response => {
+            console.log(response);
+          });
+        });
+      })
       .catch(error => console.error('Error sending video ID:', error));
   } else {
       console.log("Can't find video ID");
