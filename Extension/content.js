@@ -26,7 +26,7 @@ window.addEventListener('load', function() {
   if (videoIdMatch && videoIdMatch[1]) {
       var videoId = videoIdMatch[1];
       console.log("Current videoID is " + videoId);
-      fetch('http://127.0.0.1:8000/?video_ID=' + videoId + '&threshold=0.5&threshold=0.05&threshold=0.1&threshold=0.1&threshold=0.1&threshold=0.1&threshold=0.5', {
+      fetch('http://127.0.0.1:8000/?video_ID=' + videoId + '&threshold=0.5&threshold=0.05&threshold=0.1&threshold=0.1&threshold=0.1&threshold=0.1&threshold=0.5'+'comment_amount=50', {
           method: 'GET',
           // mode: 'no-cors',
           headers: {

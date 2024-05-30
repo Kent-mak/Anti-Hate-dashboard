@@ -42,7 +42,8 @@ def getModel():
 
     return RegressionModel(model_with_lora)
 
-def eval(text):
+def model_eval(text):
+    text = text[:350]
     model = getModel()
     model.load_state_dict(torch.load("model10%.pt", map_location=torch.device('cpu')))
     model.eval()

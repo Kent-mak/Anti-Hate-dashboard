@@ -2,10 +2,10 @@
 import googleapiclient.discovery
 import googleapiclient.errors
 from fastapi import FastAPI, Query
-from Model import eval
+from Model import model_eval
 from typing import List, Annotated, Union
 from fastapi.middleware.cors import CORSMiddleware
-
+from langdetect import detect
 
 app = FastAPI()
 allowed_origins = [
@@ -47,13 +47,13 @@ youtube = googleapiclient.discovery.build(
 
 
 @app.get("/")
-async def root(video_ID: str, threshold: Annotated[Union[List[str], None], Query()] = None):
+async def root(video_ID: str, threshold: Annotated[Union[List[str], None], Query()] = None, comment_amount: int = 50):
     threshold = [float(i) for i in threshold]
 
     request = youtube.commentThreads().list(
-        part="snippet",
-        videoId=video_ID,
-        maxResults=50
+        part = "snippet",
+        videoId = video_ID,
+        maxResults = comment_amount
     )
 
     response = request.execute()
@@ -61,7 +61,9 @@ async def root(video_ID: str, threshold: Annotated[Union[List[str], None], Query
 
     for item in response['items']:
         comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
-        evaluation = eval(comment)
+        if detect(comment) != 'en': continue
+
+        evaluation = model_eval(comment)
         # print(evaluation)
         valid = True
         for i in range(len(evaluation)):
