@@ -4,8 +4,19 @@ import googleapiclient.errors
 from fastapi import FastAPI, Query
 from Model import eval
 from typing import List, Annotated, Union
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://www.youtube.com"],  # Replace this with the appropriate origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 yt_api_key = 'AIzaSyBwCHdoDReP7RRJSx6V_Ztu1O_crZrYoa8'
 api_service_name = "youtube"
