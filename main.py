@@ -29,6 +29,22 @@ api_version = "v3"
 youtube = googleapiclient.discovery.build(
     api_service_name, api_version, developerKey=yt_api_key)
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://www.youtube.com"],  # Replace this with the appropriate origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+yt_api_key = 'AIzaSyBwCHdoDReP7RRJSx6V_Ztu1O_crZrYoa8'
+api_service_name = "youtube"
+api_version = "v3"
+
+youtube = googleapiclient.discovery.build(
+    api_service_name, api_version, developerKey=yt_api_key)
+
 
 @app.get("/")
 async def root(video_ID: str, threshold: Annotated[Union[List[str], None], Query()] = None):

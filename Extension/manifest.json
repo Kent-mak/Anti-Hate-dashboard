@@ -1,0 +1,27 @@
+{
+    "name": "Youtube Comment Filters",
+    "description": "Filter Vicious Youtube Comment",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.youtube.com/*"],
+            "js":[
+                "content.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "scripting",
+        "sidePanel",
+        "activeTab",
+        "storage",
+        "tabs"
+    ],
+    "host_permissions": [
+        "http://127.0.0.1:8000"
+    ]
+}
