@@ -15,6 +15,17 @@ window.addEventListener('load', function() {
   // Hide the comments
   hideComments();
 
+  // Set the Value for each parameter
+  const valueMapping = {
+    0 : 0.3,
+    1 : 0.2,
+    2 : 0.5
+  };
+  // Store the data 
+  chrome.storage.local.set({ valueMapping: valueMapping }, function() {
+    console.log('Parameter is stored:', valueMapping);
+  });
+
   // Get current URL
   var url = window.location.href;
 
@@ -34,7 +45,13 @@ window.addEventListener('load', function() {
           }
       })
       .then(response => response.json())
-      .then(data => console.log('Successfully sent video ID:', data))
+      .then(data => {
+        const dataContainer = document.getElementById('dataContainer');
+        dataContainer.innerHTML = `
+            <p>Name: ${data}</p>
+        `;
+      })
+      // .then(data => console.log('Successfully sent video ID:', data))
       .catch(error => console.error('Error sending video ID:', error));
   } else {
       console.log("Can't find video ID");
