@@ -160,9 +160,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const commentData = result.commentData;
             const commentInfoDiv = document.getElementById('comment-info');
             if (commentData) {
-                commentInfoDiv.innerHTML = `<pre>${JSON.stringify(commentData, null, 2)}</pre>`;
+                console.log(commentData);
+                commentData.forEach(comment => {
+                    console.log(comment);
+                    const commentElement = document.createElement('p');
+                    // Set the text content of the paragraph element to the comment
+                    commentElement.textContent = comment;
+                    // Append the comment element to the container
+                    commentInfoDiv.appendChild(commentElement)
+                }); 
+                // commentInfoDiv.innerHTML = `<pre>${JSON.stringify(commentData, null, 2)}</pre>`;
             } else {
-                commentInfoDiv.textContent = 'No comment data available.';
+                commentInfoDiv.textContent = 'No comment available.';
             }
             });
         }
