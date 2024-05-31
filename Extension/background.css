@@ -41,13 +41,13 @@
   transform: scale(0.95); /* Slightly shrink the button to indicate it's pressed */
   color: white !important; /* Text color */
 }
-
+/* 
 body.light-theme {
-  background-color: #ffffff !important; /* Light theme background color */
-  color: #000000 !important; /* Light theme text color */
+  background-color: #ffffff !important; 
+  color: #000000 !important; 
 }
 
 body.dark-theme {
-  background-color: #777777 !important; /* Dark theme background color */
-  color: #ffffff !important; /* Dark theme text color */
-}
+  background-color: #777777 !important; 
+  color: #ffffff !important;
+} */
