@@ -171,10 +171,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 commentData.forEach(comment => {
                     console.log(comment);
                     const commentElement = document.createElement('p');
-                    // Set the text content of the paragraph element to the comment
-                    commentElement.textContent = comment;
+                    // Check if the comment contains any HTML tags indicating it's a link
+                    if (/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/i.test(comment)) {
+                        // If the comment contains a link, directly set its innerHTML
+                        commentElement.innerHTML = comment;
+                    } else {
+                        // If the comment doesn't contain a link, create a text node and append it
+                        const commentText = document.createTextNode(comment);
+                        commentElement.appendChild(commentText);
+                    }
                     // Append the comment element to the container
-                    commentInfoDiv.appendChild(commentElement)
+                    commentInfoDiv.appendChild(commentElement);
                 }); 
                 for (let i=0; i<container.length; i++){
                     container[i].style.display = '';
