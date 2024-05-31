@@ -14,6 +14,8 @@ window.addEventListener('load', function() {
 
   // Hide the comments
   hideComments();
+});
+
 
   // Get current URL
   var url = window.location.href;
@@ -78,5 +80,3 @@ window.addEventListener('load', function() {
   });
 
   console.log('content.js ended');
-
-});

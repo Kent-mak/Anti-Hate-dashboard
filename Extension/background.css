@@ -1,0 +1,40 @@
+.sliders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .progress-container {
+    width: 200px;
+    height: 10px;
+    background-color: #eee;
+    position: relative;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #333;
+    width: 0%;
+  }
+  
+  .progress-knob {
+    width: 20px;
+    height: 20px;
+    background-color: #ff6347;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 0;
+    cursor: pointer;
+  }
+  
+  .value-display {
+    font-weight: bold;
+  }

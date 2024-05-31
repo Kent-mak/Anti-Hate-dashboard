@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const slider1 = document.getElementById('slider1');
     const slider1Value = document.getElementById('slider1Value');
@@ -17,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const slider7Value = document.getElementById('slider7Value');
     const comment_count = document.getElementById('max_comment');
     const submitButton = document.getElementById('submitButton');
+
+    const inputForm = document.getElementById('inputForm');
 
     // Load saved values from chrome.storage
     chrome.storage.local.get(['slider1', 'slider2', 'slider3', 'slider4', 'slider5', 'slider6', 'slider7', 'comment_count'], function(result) {
@@ -123,6 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(`comment count: ${comment_count.value}`);
         });
 
+        // Hide sliders and button
+        inputForm.innerHTML = 'Loading...';
+
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
             if (chrome.runtime.lastError) {
                 console.error('Error querying tabs:', chrome.runtime.lastError);
@@ -159,6 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
             chrome.storage.local.get('commentData', (result) => {
             const commentData = result.commentData;
             const commentInfoDiv = document.getElementById('comment-info');
+            inputForm.innerHTML = '';
             if (commentData) {
                 console.log(commentData);
                 commentData.forEach(comment => {
