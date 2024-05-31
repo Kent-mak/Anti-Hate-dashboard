@@ -180,8 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Set the text content of the paragraph element to the comment
                     commentText.textContent = cleanedComment;
                     // Append the comment element to the container
-                    commentElement.appendChild(commentText);
-                    commentInfoDiv.appendChild(commentElement)
+                    commentInfoDiv.appendChild(commentElement);
                 }); 
                 for (let i=0; i<container.length; i++){
                     container[i].style.display = '';
