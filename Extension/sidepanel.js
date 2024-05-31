@@ -199,9 +199,11 @@ document.addEventListener('DOMContentLoaded', function() {
     //     if (theme === 'dark') {
     //         document.body.classList.add('dark-theme');
     //         document.body.classList.remove('light-theme');
+    //         console.log("theme dark");
     //     } else {
     //         document.body.classList.add('light-theme');
     //         document.body.classList.remove('dark-theme');
+    //         console.log("theme light");
     //     }
     // }
 
