@@ -193,5 +193,28 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    // // Function to apply the theme based on the user's preference
+    // console.log("initial theme");
+    // function applyTheme(theme) {
+    //     if (theme === 'dark') {
+    //         document.body.classList.add('dark-theme');
+    //         document.body.classList.remove('light-theme');
+    //     } else {
+    //         document.body.classList.add('light-theme');
+    //         document.body.classList.remove('dark-theme');
+    //     }
+    // }
+
+    // // Detect the preferred color scheme
+    // const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // // Apply the preferred theme on initial load
+    // applyTheme(prefersDarkScheme.matches ? 'dark' : 'light');
+
+    // // Listen for changes in the preferred color scheme
+    // prefersDarkScheme.addEventListener('change', (event) => {
+    //     applyTheme(event.matches ? 'dark' : 'light');
+    // });
 });
 
