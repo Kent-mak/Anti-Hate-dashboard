@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     commentInfoDiv.appendChild(commentElement)
                 }); 
                 for (let i=0; i<container.length; i++){
-                    container[i].style.display = 'inline';
+                    container[i].style.display = '';
                 }
             } else {
                 commentInfoDiv.textContent = 'No comment available.';
