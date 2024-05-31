@@ -10,7 +10,7 @@
         {
             "matches": ["*://*.youtube.com/*"],
             "js":[
-                "content.js"
+                "content.js", "sidePanel.js"
             ]
         }
     ],
