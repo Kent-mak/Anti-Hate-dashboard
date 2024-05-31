@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitButton = document.getElementById('submitButton');
     const inputForm = document.getElementById('inputForm');
     const commentsection = document.getElementById('comment-info');
+    const container = document.getElementsByClassName('container mt-3');
 
     // Load saved values from chrome.storage
     chrome.storage.local.get(['slider1', 'slider2', 'slider3', 'slider4', 'slider5', 'slider6', 'slider7', 'comment_count'], function(result) {
@@ -100,6 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // const slider2CurrentValue = slider2.value;
         // const slider3CurrentValue = slider3.value;
         commentsection.innerHTML = 'Loading...';
+        for (let i=0; i<container.length; i++){
+            container[i].style.display = 'none';
+        }
 
         console.log('Slider 1 Value:', slider1.value);
         console.log('Slider 2 Value:', slider2.value);
@@ -172,7 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Append the comment element to the container
                     commentInfoDiv.appendChild(commentElement)
                 }); 
-                // commentInfoDiv.innerHTML = `<pre>${JSON.stringify(commentData, null, 2)}</pre>`;
+                for (let i=0; i<container.length; i++){
+                    container[i].style.display = 'inline';
+                }
             } else {
                 commentInfoDiv.textContent = 'No comment available.';
             }
