@@ -3,52 +3,85 @@
 <head>
     <title>Anti-Hate Dashboard</title>
     <!-- Include Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-3">
-        <form id="inputForm">
-            <div class="form-group">
-                <label for="slider1">toxicity: <span id="slider1Value">0.5</span></label>
-                <input type="range" class="form-control-range" id="slider1" min="0" max="1" step="0.01" value="0.5">
+        <button class="btn btn-info mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#inputForm" aria-expanded="false" aria-controls="inputForm">
+            Toggle Sliders
+        </button>
+        <form id="inputForm" class="collapse">
+            <div class="row mb-3 align-items-center">
+                <div class="col-auto">
+                    <label for="slider1" class="form-label">toxicity: <span id="slider1Value">0.5</span></label>
+                </div>
+                <div class="col">
+                    <input type="range" class="form-range" id="slider1" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider1Value').innerText = this.value">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="slider2">severe_toxicity: <span id="slider2Value">0.5</span></label>
-                <input type="range" class="form-control-range" id="slider2" min="0" max="1" step="0.01" value="0.5">
+            <div class="row mb-3 align-items-center">
+                <div class="col-auto">
+                    <label for="slider2" class="form-label">severe_toxicity: <span id="slider2Value">0.5</span></label>
+                </div>
+                <div class="col">
+                    <input type="range" class="form-range" id="slider2" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider2Value').innerText = this.value">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="slider3">obscene: <span id="slider3Value">0.5</span></label>
-                <input type="range" class="form-control-range" id="slider3" min="0" max="1" step="0.01" value="0.5">
+            <div class="row mb-3 align-items-center">
+                <div class="col-auto">
+                    <label for="slider3" class="form-label">obscene: <span id="slider3Value">0.5</span></label>
+                </div>
+                <div class="col">
+                    <input type="range" class="form-range" id="slider3" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider3Value').innerText = this.value">
+                </div>
             </div>
-            <div class="form-group">
-              <label for="slider4">threat: <span id="slider4Value">0.5</span></label>
-              <input type="range" class="form-control-range" id="slider4" min="0" max="1" step="0.01" value="0.5">
+            <div class="row mb-3 align-items-center">
+                <div class="col-auto">
+                    <label for="slider4" class="form-label">threat: <span id="slider4Value">0.5</span></label>
+                </div>
+                <div class="col">
+                    <input type="range" class="form-range" id="slider4" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider4Value').innerText = this.value">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="slider5">insult: <span id="slider5Value">0.5</span></label>
-                <input type="range" class="form-control-range" id="slider5" min="0" max="1" step="0.01" value="0.5">
+            <div class="row mb-3 align-items-center">
+                <div class="col-auto">
+                    <label for="slider5" class="form-label">insult: <span id="slider5Value">0.5</span></label>
+                </div>
+                <div class="col">
+                    <input type="range" class="form-range" id="slider5" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider5Value').innerText = this.value">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="slider6">identity attack: <span id="slider6Value">0.5</span></label>
-                <input type="range" class="form-control-range" id="slider6" min="0" max="1" step="0.01" value="0.5">
+            <div class="row mb-3 align-items-center">
+                <div class="col-auto">
+                    <label for="slider6" class="form-label">identity attack: <span id="slider6Value">0.5</span></label>
+                </div>
+                <div class="col">
+                    <input type="range" class="form-range" id="slider6" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider6Value').innerText = this.value">
+                </div>
             </div>
-            <div class="form-group">
-              <label for="slider7">sexual explicit: <span id="slider7Value">0.5</span></label>
-              <input type="range" class="form-control-range" id="slider7" min="0" max="1" step="0.01" value="0.5">
+            <div class="row mb-3 align-items-center">
+                <div class="col-auto">
+                    <label for="slider7" class="form-label">sexual explicit: <span id="slider7Value">0.5</span></label>
+                </div>
+                <div class="col">
+                    <input type="range" class="form-range" id="slider7" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider7Value').innerText = this.value">
+                </div>
             </div>
-            <div class="form-group">
-              <input min="0" max="100"  value="50" type="number" id="max_comment" class="form-control" />
-              <label class="form-label" for="max_comment">Maximum number of comments</label>
+            <div class="row mb-3 align-items-center">
+                <div class="col-auto">
+                    <label for="max_comment" class="form-label">Maximum number of comments</label>
+                </div>
+                <div class="col">
+                    <input min="0" max="100" value="50" type="number" id="max_comment" class="form-control" />
+                </div>
             </div>
             <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
         </form>
     </div>
     <div id="comment-info"></div>
 
-    <!-- Include Bootstrap JS and Popper.js (Bootstrap's JavaScript dependencies) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="bootstrap.bundle.min.js"></script>
 
     <!-- Include your custom script -->
     <script src="sidepanel.js"></script>
