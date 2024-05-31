@@ -17,14 +17,8 @@ window.addEventListener('load', function() {
 });
 
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type === 'logToConsole') {
-    console.log(message.data);
-    console.log(message.sliders);
-    sliders = message.sliders;
-    sendResponse({ success: true });
-    // Get current URL
-    var url = window.location.href;
+  // Get current URL
+  var url = window.location.href;
 
   // Get videoID
   var videoIdMatch = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
@@ -86,5 +80,3 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   });
 
   console.log('content.js ended');
-}
-})
