@@ -178,7 +178,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     commentElement.classList.add('comment');
                     const commentText = document.createElement('p');
                     // Set the text content of the paragraph element to the comment
-                    commentText.textContent = cleanedComment;
+                    // commentText.textContent = cleanedComment;
+
+                    if (/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/i.test(comment)) {
+                        // If the comment contains a link, directly set its innerHTML
+                        commentText.innerHTML = comment;
+                    } else {
+                        // If the comment doesn't contain a link, create a text node and append it
+                        const commentText_ = document.createTextNode(comment);
+                        commentText.appendChild(commentText_);
+                    }
+
                     // Append the comment element to the container
                     commentInfoDiv.appendChild(commentElement);
                 }); 
