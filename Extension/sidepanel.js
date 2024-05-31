@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // const tempDiv = document.createElement('div');
                     // tempDiv.innerHTML = comment;
                     // const cleanedComment = tempDiv.textContent || tempDiv.innerText || "";
-                    // console.log(cleanedComment);
+                    console.log(comment);
 
                     const commentElement = document.createElement('div');
                     commentElement.classList.add('comment');
@@ -180,17 +180,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Set the text content of the paragraph element to the comment
                     // commentText.textContent = cleanedComment;
 
-                    if (/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/i.test(comment)) {
-                        // If the comment contains a link, directly set its innerHTML
-                        commentText.innerHTML = comment;
-                    } else {
-                        // If the comment doesn't contain a link, create a text node and append it
-                        const commentText_ = document.createTextNode(comment);
-                        commentText.appendChild(commentText_);
-                    }
-
+                    // if (/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/i.test(comment)) {
+                    //     // If the comment contains a link, directly set its innerHTML
+                    //     commentText.innerHTML = comment;
+                    // } else {
+                    //     // If the comment doesn't contain a link, create a text node and append it
+                    //     const commentText_ = document.createTextNode(comment);
+                    //     commentText.appendChild(commentText_);
+                    // }
+                    commentText.innerHTML = comment;
                     // Append the comment element to the container
-                    commentInfoDiv.appendChild(commentElement);
+                    commentElement.appendChild(commentText);
+                    commentInfoDiv.appendChild(commentElement)
                 }); 
                 for (let i=0; i<container.length; i++){
                     container[i].style.display = '';
@@ -208,11 +209,9 @@ document.addEventListener('DOMContentLoaded', function() {
     //     if (theme === 'dark') {
     //         document.body.classList.add('dark-theme');
     //         document.body.classList.remove('light-theme');
-    //         console.log("theme dark");
     //     } else {
     //         document.body.classList.add('light-theme');
     //         document.body.classList.remove('dark-theme');
-    //         console.log("theme light");
     //     }
     // }
 
