@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form with Sliders</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Form with Sliders</h2>
+        <form id="sliderForm">
+            <div class="form-group">
+                <label for="slider1">Slider 1 (0-100):</label>
+                <input type="range" class="form-control-range" id="slider1" name="slider1" min="0" max="100">
+                <output id="output1" class="ml-2">50</output>
+            </div>
+            <div class="form-group">
+                <label for="slider2">Slider 2 (0-50):</label>
+                <input type="range" class="form-control-range" id="slider2" name="slider2" min="0" max="50">
+                <output id="output2" class="ml-2">25</output>
+            </div>
+            <div class="form-group">
+                <label for="slider3">Slider 3 (0-200):</label>
+                <input type="range" class="form-control-range" id="slider3" name="slider3" min="0" max="200">
+                <output id="output3" class="ml-2">100</output>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js (Bootstrap's JavaScript dependencies) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Include custom script to update output values -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider1 = document.getElementById('slider1');
+            const output1 = document.getElementById('output1');
+            slider1.addEventListener('input', function() {
+                output1.value = slider1.value;
+            });
+
+            const slider2 = document.getElementById('slider2');
+            const output2 = document.getElementById('output2');
+            slider2.addEventListener('input', function() {
+                output2.value = slider2.value;
+            });
+
+            const slider3 = document.getElementById('slider3');
+            const output3 = document.getElementById('output3');
+            slider3.addEventListener('input', function() {
+                output3.value = slider3.value;
+            });
+
+            const form = document.getElementById('sliderForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                console.log('Slider 1:', formData.get('slider1'));
+                console.log('Slider 2:', formData.get('slider2'));
+                console.log('Slider 3:', formData.get('slider3'));
+                alert('Form submitted! Check the console for values.');
+            });
+        });
+    </script>
+</body>
+</html>
