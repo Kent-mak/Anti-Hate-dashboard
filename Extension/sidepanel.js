@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const slider7Value = document.getElementById('slider7Value');
     const comment_count = document.getElementById('max_comment');
     const submitButton = document.getElementById('submitButton');
-
     const inputForm = document.getElementById('inputForm');
+    const commentsection = document.getElementById('comment-info');
 
     // Load saved values from chrome.storage
     chrome.storage.local.get(['slider1', 'slider2', 'slider3', 'slider4', 'slider5', 'slider6', 'slider7', 'comment_count'], function(result) {
@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // const slider1CurrentValue = slider1.value;
         // const slider2CurrentValue = slider2.value;
         // const slider3CurrentValue = slider3.value;
+        commentsection.innerHTML = 'Loading...';
 
         console.log('Slider 1 Value:', slider1.value);
         console.log('Slider 2 Value:', slider2.value);
@@ -123,8 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(`comment count: ${comment_count.value}`);
         });
 
-        // Hide sliders and button
-        inputForm.innerHTML = 'Loading...';
 
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
             if (chrome.runtime.lastError) {
@@ -159,12 +158,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         if(message.type === 'showcomment'){
+            commentsection.innerHTML = '';
             chrome.storage.local.get('commentData', (result) => {
             const commentData = result.commentData;
             const commentInfoDiv = document.getElementById('comment-info');
-            inputForm.innerHTML = '';
+            
             if (commentData) {
-                console.log(commentData);
                 commentData.forEach(comment => {
                     console.log(comment);
                     const commentElement = document.createElement('p');
