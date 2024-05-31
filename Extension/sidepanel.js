@@ -171,17 +171,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 commentData.forEach(comment => {
                     console.log(comment);
                     const commentElement = document.createElement('p');
-                    // Check if the comment contains any HTML tags indicating it's a link
-                    if (/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/i.test(comment)) {
-                        // If the comment contains a link, directly set its innerHTML
-                        commentElement.innerHTML = comment;
-                    } else {
-                        // If the comment doesn't contain a link, create a text node and append it
-                        const commentText = document.createTextNode(comment);
-                        commentElement.appendChild(commentText);
-                    }
+                    // Set the text content of the paragraph element to the comment
+                    commentElement.textContent = comment;
                     // Append the comment element to the container
-                    commentInfoDiv.appendChild(commentElement);
+                    commentInfoDiv.appendChild(commentElement)
                 }); 
                 for (let i=0; i<container.length; i++){
                     container[i].style.display = '';
@@ -192,5 +185,28 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    // // Function to apply the theme based on the user's preference
+    // console.log("initial theme");
+    // function applyTheme(theme) {
+    //     if (theme === 'dark') {
+    //         document.body.classList.add('dark-theme');
+    //         document.body.classList.remove('light-theme');
+    //     } else {
+    //         document.body.classList.add('light-theme');
+    //         document.body.classList.remove('dark-theme');
+    //     }
+    // }
+
+    // // Detect the preferred color scheme
+    // const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // // Apply the preferred theme on initial load
+    // applyTheme(prefersDarkScheme.matches ? 'dark' : 'light');
+
+    // // Listen for changes in the preferred color scheme
+    // prefersDarkScheme.addEventListener('change', (event) => {
+    //     applyTheme(event.matches ? 'dark' : 'light');
+    // });
 });
 

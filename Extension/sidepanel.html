@@ -4,10 +4,11 @@
     <title>Anti-Hate Dashboard</title>
     <!-- Include Bootstrap CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="background.css">
 </head>
 <body>
     <div class="container mt-3">
-        <button class="btn btn-info mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#inputForm" aria-expanded="false" aria-controls="inputForm">
+        <button class="custom-btn btn btn-info mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#inputForm" aria-expanded="false" aria-controls="inputForm">
             Modify Filter Threshold
         </button>
         <form id="inputForm" class="collapse">
@@ -16,7 +17,7 @@
                     <label for="slider1" class="form-label">toxicity: <span id="slider1Value">0.5</span></label>
                 </div>
                 <div class="col">
-                    <input type="range" class="form-range" id="slider1" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider1Value').innerText = this.value">
+                    <input type="range" class=" form-range" id="slider1" min="0" max="1" step="0.01" value="0.5" oninput="document.getElementById('slider1Value').innerText = this.value">
                 </div>
             </div>
             <div class="row mb-3 align-items-center">
@@ -75,7 +76,7 @@
                     <input min="0" max="100" value="50" type="number" id="max_comment" class="form-control" />
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
+            <button type="button" class="custom-btn btn btn-primary" id="submitButton">Submit</button>
         </form>
     </div>
     <div id="comment-info" class="row mb-3 ms-3 mt-3"></div>
@@ -85,5 +86,6 @@
 
     <!-- Include your custom script -->
     <script src="sidepanel.js"></script>
+    
 </body>
 </html>
