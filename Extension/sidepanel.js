@@ -169,11 +169,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (commentData) {
                 commentData.forEach(comment => {
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = comment;
-                    const cleanedComment = tempDiv.textContent || tempDiv.innerText || "";
-
-                    console.log(cleanedComment);
+                    // const tempDiv = document.createElement('div');
+                    // tempDiv.innerHTML = comment;
+                    // const cleanedComment = tempDiv.textContent || tempDiv.innerText || "";
+                    // console.log(cleanedComment);
 
                     const commentElement = document.createElement('div');
                     commentElement.classList.add('comment');
