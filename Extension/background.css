@@ -1,40 +1,24 @@
-.sliders-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .slider-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .progress-container {
-    width: 200px;
-    height: 10px;
-    background-color: #eee;
-    position: relative;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    background-color: #333;
-    width: 0%;
-  }
-  
-  .progress-knob {
-    width: 20px;
-    height: 20px;
-    background-color: #ff6347;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 0;
-    cursor: pointer;
-  }
-  
-  .value-display {
-    font-weight: bold;
-  }
+#comment-info {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #e9ecef;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+}
+
+.comment p {
+  margin: 0;
+}
+
+.comment:nth-child(even) {
+  background-color: #f8f9fa;
+}

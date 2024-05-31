@@ -165,11 +165,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (commentData) {
                 commentData.forEach(comment => {
-                    console.log(comment);
-                    const commentElement = document.createElement('p');
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = comment;
+                    const cleanedComment = tempDiv.textContent || tempDiv.innerText || "";
+
+                    console.log(cleanedComment);
+
+                    const commentElement = document.createElement('div');
+                    commentElement.classList.add('comment');
+                    const commentText = document.createElement('p');
                     // Set the text content of the paragraph element to the comment
-                    commentElement.textContent = comment;
+                    commentText.textContent = cleanedComment;
                     // Append the comment element to the container
+                    commentElement.appendChild(commentText);
                     commentInfoDiv.appendChild(commentElement)
                 }); 
                 // commentInfoDiv.innerHTML = `<pre>${JSON.stringify(commentData, null, 2)}</pre>`;
